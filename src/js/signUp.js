@@ -21,14 +21,20 @@ $(document).ready(function(){
 	//All form data will send for processes in serhan's App
 	$('#signUpForm').on('submit', function(event){
 		
-	
+		event.preventDefault();
 		var signUpForm = $(this);
 		var formReady = JSON.stringify(signUpForm.serializeArray());
-	
+		console.log(formReady[1].surName);
 		console.log("Mail Will be send in a few minutes! " + formReady );
+	
 
-		
-
+		$.ajax({
+		type: 'POST', 
+		url:'/regisMail', 
+		data: { info: formReady },
+		dataType:'json'
+		 });
 	});
 
 });
+

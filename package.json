@@ -1,6 +1,19 @@
 {
   "name": "grunt-getting-started",
+  "description": "Our sample Node to Heroku app",
+  "main": "app.js",
   "version": "0.1.0",
+  "dependencies": {
+    "ejs": "~1.0.0",
+    "express": "~4.9.8",
+    "node-mandrill":"latest",
+    "mandrill-api":"latest",
+    "body-parser":"latest",
+
+     "scripts": {
+    "start": "node app.js"
+                }
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-contrib-jshint": "latest",
@@ -8,8 +21,12 @@
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-less": "latest",
     "grunt-contrib-cssmin": "latest",
-    "grunt-concurrent": "latest",
+    "grunt-concurrent":"latest",
     "grunt-contrib-watch": "latest",
     "grunt-nodemon":"latest"
-  }
+      }
 }
+
+
+
+
