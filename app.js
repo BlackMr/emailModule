@@ -3,6 +3,7 @@ var app = express();
 var server = require('http').createServer(app);
 var mandrill = require('node-mandrill')('V-5kfmFg9OrL5TRDDEKifA');
 var bodyParser= require('body-parser');
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -20,17 +21,23 @@ app.get('/signup', function(req,res){
 	res.sendFile(__dirname + '/public/view/signup.html');
 });
 
+app.get('/confMail', function(req,res){
+	res.sendFile(__dirname + '/public/view/signUpMailTemp.html');
+});
+
 //After module achive the required data from controllers in Serhan's App
 app.post('/regisMail', function(request,response){
     
-    console.log('response: ' + request.body.info);
-    var deserializedInfo = JSON.parse(request.body.info);
     
+    var deserializedForm = JSON.parse(request.body.info);
+    console.log('deserializedForm',deserializedForm);
+	
+
 	mandrill('/messages/send', {
         message: {
-            to: [{email:'karabeykaan@gmail.com', name:'Kaan BlackMr' }],
-            from_email: 'kaaninmuthissitesi@beypazari.com',
-            subject: "Wassup Madafaka",
+            to: [{email:deserializedForm[2].value, name:deserializedForm[0,1].value }],
+            from_email: 'oldstager@mail.com',
+            subject: "Confirmation for GYMGYM",
             text: 'Siteme hosgeldin yarraam'
         }
     }, function(error, response)

@@ -24,7 +24,11 @@ $(document).ready(function(){
 		event.preventDefault();
 		var signUpForm = $(this);
 		var formReady = JSON.stringify(signUpForm.serializeArray());
+		
 		console.log(formReady[1].surName);
+		console.log(formReady[0].name);
+		console.log(formReady);
+		console.log('signUpForm', signUpForm);
 		console.log("Mail Will be send in a few minutes! " + formReady );
 	
 
@@ -34,7 +38,11 @@ $(document).ready(function(){
 		data: { info: formReady },
 		dataType:'json'
 		 });
-	});
+
+		window.location.replace("http://localhost:8080/confMail");
+		});
+
+
 
 });
 
