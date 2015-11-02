@@ -24,9 +24,7 @@
     "grunt-concurrent":"latest",
     "grunt-contrib-watch": "latest",
     "grunt-nodemon":"latest"
-      },
-    "engine": "node 0.12.7",
-    "npm":"2.13.1"
+      }
 }
 
 
