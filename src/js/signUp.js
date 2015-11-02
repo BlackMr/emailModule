@@ -7,7 +7,9 @@ $(document).ready(function(){
 	//button for sign Up and redirecting "signup.html"
 	$('#signUp').click(function(){
 		console.log('"Sign Up Now" button clicked');
+		if(window.location.replace("http://localhost:8080/signup")){
 		window.location.replace("http://localhost:8080/signup");
+		} else {window.location.replace("http://emailmodule.herokuapp.com")}
 		//window.location.href = "http://stackoverflow.com";
 	});
 
