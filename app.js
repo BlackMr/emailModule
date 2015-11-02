@@ -33,13 +33,44 @@ app.post('/regisMail', function(request,response){
     console.log('deserializedForm',deserializedForm);
 	
 
-	mandrill('/messages/send', {
-        message: {
-            to: [{email:deserializedForm[2].value, name:deserializedForm[0,1].value }],
-            from_email: 'oldstager@mail.com',
-            subject: "Confirmation for GYMGYM",
-            text: 'Siteme hosgeldin yarraam'
-        }
+	mandrill('/messages/send-template', {
+        	template_name:"confirmationEmail",
+        	template_content: [ 
+        	{
+        		name:"confirmationEmail",
+        		content:"confirmation Email",
+        	}],
+
+            message: {
+            	to: [{email:deserializedForm[2].value, name:deserializedForm[0,1].value }],
+            	from_email: 'oldstager@mail.com',
+            	subject: "Confirmation for GYMGYM",
+            	text: 'Siteme hosgeldin yarraam',
+
+             	auto_text: true,
+        		inline_css: true,
+        		merge: true,
+        		merge_language: "handlebars",
+ 
+       
+        		global_merge_vars: [
+        			{	
+        				name: "email",
+        				content:"xxxx"
+        			},
+    			],
+    			merge_vars: [
+    				{
+    					vars: [
+							{
+								name:"nameof",
+								content:"Marry"
+							}
+    					]
+    				}
+    			]
+    		}
+  		
     }, function(error, response)
     {
         //uh oh, there was an error
