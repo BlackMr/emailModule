@@ -7,7 +7,7 @@ $(document).ready(function(){
 	//button for sign Up and redirecting "signup.html"
 	$('#signUp').click(function(){
 		console.log('"Sign Up Now" button clicked');
-		window.location.replace("http://emailmodule.herokuapps.com/signup");
+		window.location.replace("http://emailmodule.herokuapp.com/signup");
 		//window.location.href = "http://stackoverflow.com";
 	});
 
