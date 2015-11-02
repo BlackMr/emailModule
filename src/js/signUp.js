@@ -7,9 +7,11 @@ $(document).ready(function(){
 	//button for sign Up and redirecting "signup.html"
 	$('#signUp').click(function(){
 		console.log('"Sign Up Now" button clicked');
-		if(window.location.replace("http://localhost:8080/signup")){
+		if(window.location("http://localhost:8080")){
 		window.location.replace("http://localhost:8080/signup");
-		} else {window.location.replace("http://emailmodule.herokuapp.com")}
+		} else {window.location.replace("http://emailmodule.herokuapp.com");
+		  }
+		  console.log(window.location.host);
 		//window.location.href = "http://stackoverflow.com";
 	});
 
