@@ -1,8 +1,11 @@
 var express = require('express');
+var path = require('path'); 
 var app = express();
 var server = require('http').createServer(app);
 var mandrill = require('node-mandrill')('V-5kfmFg9OrL5TRDDEKifA');
 var bodyParser= require('body-parser');
+var Router=require('router');
+var router=express.Router();
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -10,16 +13,25 @@ app.use(bodyParser.urlencoded({
 
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + '/public/'));
+app.use(express.static(__dirname + '/public'));
+app.set('view', path.join(__dirname, 'view'));
 
-app.get('/', function(req,res)
+
+app.get('/', function (req,res)
 {	
 	res.sendFile(__dirname + '/public/view/index.html');
+	console.log('Hello "/"');
+
 });
 
-app.get('/signup', function(req,res){
-	res.sendFile(__dirname + '/public/view/signup.html');
+app.post('/signup', function (request, response) { 
+	//var togo = JSON.parse(request.body.information);
+	console.log('sign up');
+	response.status(200).json( __dirname + '/view/signup.html');
+ 	
 });
+
+
 
 app.get('/confMail', function(req,res){
 	res.sendFile(__dirname + '/public/view/signUpMailTemp.html');

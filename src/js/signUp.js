@@ -5,9 +5,26 @@ $(document).ready(function(){
 
 	
 	//button for sign Up and redirecting "signup.html"
-	$('#signUp').click(function(){
+	$('#signUp').click(function(event){
 		console.log('"Sign Up Now" button clicked');
-		window.location.replace("http://emailmodule.herokuapp.com/signup");
+		//event.preventDefault();
+
+		var theEvent = $(this);
+		var goodToGo = JSON.stringify(theEvent);
+
+		$.ajax({
+		type: 'POST', 
+		url:'/signup', 
+		data: {},
+		dataType:'json',
+		success: function(data){
+			console.log('Success Alert');
+
+				 }
+		});
+		
+
+		//window.location.replace("http://localhost:8080/signup");
 		//window.location.href = "http://stackoverflow.com";
 	});
 
