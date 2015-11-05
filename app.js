@@ -4,8 +4,8 @@ var app = express();
 var server = require('http').createServer(app);
 var mandrill = require('node-mandrill')('V-5kfmFg9OrL5TRDDEKifA');
 var bodyParser= require('body-parser');
-var Router=require('router');
-var router=express.Router();
+//var Router=require('router');
+//var router=express.Router();
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -24,11 +24,13 @@ app.get('/', function (req,res)
 
 });
 
-app.post('/signup', function (request, response) { 
+app.get('/signup', function (request, response) { 
 	//var togo = JSON.parse(request.body.information);
-	console.log('sign up');
-	response.status(200).json( __dirname + '/view/signup.html');
- 	
+	//app.post('/signup', function (req,res){
+
+		console.log('sign up');
+		response.sendFile( __dirname + '/public/view/signup.html');
+ 	//});
 });
 
 
@@ -63,20 +65,30 @@ app.post('/regisMail', function(request,response){
         		inline_css: true,
         		merge: true,
         		merge_language: "handlebars",
- 
+ 				tags: [ 'signupToPage' ],
        
         		global_merge_vars: [
         			{	
-        				name: "email",
-        				content:"xxxx"
+        				name: "emaill",
+        				content: deserializedForm[2].value,
         			},
+        			{
+        				name:"nameof",
+								content:deserializedForm[0].value
+					},
+					{
+						name:"surnameof",
+						content:deserializedForm[1].value
+						
+					}
     			],
     			merge_vars: [
     				{
     					vars: [
 							{
-								name:"nameof",
-								content:"Marry"
+
+								name:"emaill",
+								content:deserializedForm[2].value
 							}
     					]
     				}

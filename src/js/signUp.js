@@ -13,17 +13,17 @@ $(document).ready(function(){
 		var goodToGo = JSON.stringify(theEvent);
 
 		$.ajax({
-		type: 'POST', 
+		type: 'GET', 
 		url:'/signup', 
-		data: {},
-		dataType:'json',
+		//data: {},
+		//dataType:'json',
 		success: function(data){
 			console.log('Success Alert');
 
 				 }
 		});
 		
-
+		
 		//window.location.replace("http://localhost:8080/signup");
 		//window.location.href = "http://stackoverflow.com";
 	});
