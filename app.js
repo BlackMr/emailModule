@@ -103,6 +103,8 @@ app.post('/regisMail', function(request,response){
         //everything's good, lets see what mandrill said
         else console.log(response);
     });
+	
+	response.sendFile(__dirname + 'public/view/signUpMailTemp');
 });
 
 

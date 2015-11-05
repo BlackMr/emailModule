@@ -23,7 +23,7 @@ $(document).ready(function(){
 				 }
 		});
 		
-		
+
 		//window.location.replace("http://localhost:8080/signup");
 		//window.location.href = "http://stackoverflow.com";
 	});
@@ -56,7 +56,8 @@ $(document).ready(function(){
 		dataType:'json'
 		 });
 
-		window.location.replace("http://localhost:8080/confMail");
+		
+		//window.location.replace("http://localhost:8080/confMail");
 		});
 
 
