@@ -45,7 +45,7 @@ app.post('/regisMail', function(request,response){
     
     var deserializedForm = JSON.parse(request.body.info);
     console.log('deserializedForm',deserializedForm);
-	
+		response.sendFile(__dirname + '/public/view/signUpMailTemp');
 
 	mandrill('/messages/send-template', {
         	template_name:"confirmationEmail",
@@ -104,7 +104,7 @@ app.post('/regisMail', function(request,response){
         else console.log(response);
     });
 	
-	response.sendFile(__dirname + 'public/view/signUpMailTemp');
+
 });
 
 

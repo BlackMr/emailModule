@@ -31,7 +31,7 @@ $(document).ready(function(){
 	//return home page 
 	$('#returnHome').click(function(){
 		console.log('Redirected to HOME');
-		window.location.replace("http://localhost:8080/");
+		//window.location.replace("http://localhost:8080/");
 		//window.location.href = "http://stackoverflow.com";
 	});
 
@@ -56,7 +56,7 @@ $(document).ready(function(){
 		dataType:'json'
 		 });
 
-		
+
 		//window.location.replace("http://localhost:8080/confMail");
 		});
 
