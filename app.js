@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
-app.set('view', path.join(__dirname, 'view'));
+//app.set('view', path.join(__dirname, 'view'));
 
 
 app.get('/', function (req,res)
@@ -33,10 +33,6 @@ app.get('/signup', function (request, response) {
 		response.sendFile( __dirname + '/public/view/signup.html');
  	//});
 });
-// app.post('/signup', function (req,res){
-//     var deserializedButton = JSON.parse(request.body.inf);
-//     res.sendFile( __dirname + '/public/view/signup.html');
-// });
 
 
 // app.get('/confmail', function(req,res){

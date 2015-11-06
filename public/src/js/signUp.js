@@ -9,31 +9,7 @@ $(document).ready(function(){
 		console.log('"Sign Up Now" button clicked');
 		//event.preventDefault();
 
-		var theEvent = $(this);
-		var goodToGo = JSON.stringify(theEvent.serializeArray());
 
-		$.ajax({
-		type: 'GET', 
-		url:'/signup', 
-		
-		success: function(data){
-			console.log('Success Alert');
-
-				 },
-			
-		});
-
-		// $.ajax({
-		// 	type: 'POST', 
-		// 	url:'/signup', 
-		// 	data: { inf: goodToGo},
-		// 	dataType:'json',
-		// 	success: function(data2){
-		// 	console.log('Success Alert2');
-
-		// 		 }
-		// });
-		
 
 		//window.location.replace("http://localhost:8080/signup");
 		//window.location.href = "http://stackoverflow.com";
