@@ -20,7 +20,7 @@ module.exports = function(grunt) {
       },
 
       // when this task is run, lint the Gruntfile and all js files in src
-      build: ['Gruntfile.js', 'src/**/*.js']
+      build: ['Gruntfile.js', 'public/src/**/*.js']
     },
 
     // configure uglify to minify js files -------------------------------------
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          'public/dist/js/main.min.js': 'src/js/*.js',
+          'public/dist/js/main.min.js': 'public/src/js/*.js',
           
         }
       }
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
        less: {
       build: {
         files: {
-          'public/dist/css/pretty.css': 'src/css/pretty.less'
+          'public/dist/css/pretty.css': 'public/src/css/pretty.less'
         }
       }
     },
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
       },
       build: {
         files: {
-          'public/dist/css/style.min.css': 'src/css/style.css'
+          'public/dist/css/style.min.css': 'public/src/css/style.css'
         }
       }
     },
@@ -61,7 +61,7 @@ watch: {
   
   // for stylesheets, watch css and less files 
   // only run less and cssmin stylesheets: { 
-  files:  ['src/**/*.css', 'src/**/*.less'], 
+  files:  ['public/src/**/*.css', 'public/src/**/*.less'], 
   tasks: ['less', 'cssmin'],
 
   // for scripts, run jshint and uglify 

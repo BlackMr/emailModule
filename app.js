@@ -3,6 +3,7 @@ var path = require('path');
 var app = express();
 var server = require('http').createServer(app);
 var mandrill = require('node-mandrill')('V-5kfmFg9OrL5TRDDEKifA');
+//var mandrill_client = new mandrill.Mandrill('V-5kfmFg9OrL5TRDDEKifA');
 var bodyParser= require('body-parser');
 //var Router=require('router');
 //var router=express.Router();
@@ -10,7 +11,7 @@ var bodyParser= require('body-parser');
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-
+    
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'));
@@ -32,21 +33,35 @@ app.get('/signup', function (request, response) {
 		response.sendFile( __dirname + '/public/view/signup.html');
  	//});
 });
+// app.post('/signup', function (req,res){
+//     var deserializedButton = JSON.parse(request.body.inf);
+//     res.sendFile( __dirname + '/public/view/signup.html');
+// });
+
+
+// app.get('/confmail', function(req,res){
+// 	res.sendFile(__dirname + '/public/view/signupmailtemp.html');
+// });
 
 
 
-app.get('/confMail', function(req,res){
-	res.sendFile(__dirname + '/public/view/signUpMailTemp.html');
-});
+ // var tag ="signupToPage";
+ // mandrill.tags.info({"tag": tag}, function(result) {
+ // console.log(result);
+ // });
+
+
+
 
 //After module achive the required data from controllers in Serhan's App
-app.post('/regisMail', function(request,response){
+app.post('/regismail', function(request,response){
     
     
     var deserializedForm = JSON.parse(request.body.info);
     console.log('deserializedForm',deserializedForm);
-		response.sendFile(__dirname + '/public/view/signUpMailTemp');
+	response.sendFile(__dirname + '/public/view/signupmailtemp.html');
 
+    
 	mandrill('/messages/send-template', {
         	template_name:"confirmationEmail",
         	template_content: [ 
@@ -103,7 +118,13 @@ app.post('/regisMail', function(request,response){
         //everything's good, lets see what mandrill said
         else console.log(response);
     });
-	
+
+    var startTime = new Date().getTime();
+
+    setTimeout(function () {
+    var endTime = new Date().getTime();
+    console.log("duration [ms] = " + (endTime-startTime));
+    }, 1500);
 
 });
 
