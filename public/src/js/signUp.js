@@ -42,14 +42,13 @@ $(document).ready(function(){
 		data: { info: formReady },
 		dataType:'json'
 		 });
+      	window.location = 'http://emailmodule.herokuapp.com';
+    	
 
-		
 
-
-		//window.location.replace("http://localhost:8080/confMail");
+		//window.location("http://localhost:8080");
 		});
 
 
 
 });
-

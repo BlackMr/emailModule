@@ -125,5 +125,5 @@ app.post('/regismail', function(request,response){
 });
 
 
-server.listen(process.env.PORT || 8080);
+server.listen(process.env.PORT || 8070);
 console.log('Listening on MagicPort 8080');
