@@ -43,6 +43,8 @@ $(document).ready(function(){
 		dataType:'json'
 		 });
 
+		
+
 
 		//window.location.replace("http://localhost:8080/confMail");
 		});

@@ -55,7 +55,7 @@ app.post('/regismail', function(request,response){
     
     var deserializedForm = JSON.parse(request.body.info);
     console.log('deserializedForm',deserializedForm);
-	response.redirect(__dirname + '/public/view/signupmailtemp.html');
+	//response.redirect(__dirname + '/public/view/signupmailtemp.html');
 
     
 	mandrill('/messages/send-template', {
