@@ -40,9 +40,10 @@ $(document).ready(function(){
 		type: 'POST', 
 		url:'/regismail', 
 		data: { info: formReady },
-		dataType:'json'
+		dataType:'json',
+		success: window.location = 'http://emailmodule.herokuapp.com'
+		//success: window.location = 'http://localhost:8070'
 		 });
-      	window.location = 'http://emailmodule.herokuapp.com';
     	alert("Check Out Your Email Adress...");
 
 
