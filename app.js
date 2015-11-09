@@ -55,7 +55,7 @@ app.post('/regismail', function(request,response){
     
     var deserializedForm = JSON.parse(request.body.info);
     console.log('deserializedForm',deserializedForm);
-	response.sendFile(__dirname + '/public/view/signupmailtemp.html');
+	response.redirect(__dirname + '/public/view/signupmailtemp.html');
 
     
 	mandrill('/messages/send-template', {
@@ -115,12 +115,12 @@ app.post('/regismail', function(request,response){
         else console.log(response);
     });
 
-    var startTime = new Date().getTime();
+    // var startTime = new Date().getTime();
 
-    setTimeout(function () {
-    var endTime = new Date().getTime();
-    console.log("duration [ms] = " + (endTime-startTime));
-    }, 1500);
+    // setTimeout(function () {
+    // var endTime = new Date().getTime();
+    // console.log("duration [ms] = " + (endTime-startTime));
+    // }, 1500);
 
 });
 
