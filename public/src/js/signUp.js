@@ -43,7 +43,7 @@ $(document).ready(function(){
 		dataType:'json'
 		 });
       	window.location = 'http://emailmodule.herokuapp.com';
-    	
+    	alert("Check Out Your Email Adress...");
 
 
 		//window.location("http://localhost:8080");
