@@ -7,6 +7,10 @@ var mandrill = require('node-mandrill')('V-5kfmFg9OrL5TRDDEKifA');
 var bodyParser= require('body-parser');
 //var Router=require('router');
 //var router=express.Router();
+    // Your accountSid and authToken from twilio.com/user/account
+    var accountSid = 'ACb9f05f110b46bad546630e90ee420b68';
+    var authToken = '2b9790217b8f23153813953929a6124b';
+    var client = require('twilio')(accountSid, authToken);
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -18,10 +22,29 @@ app.use(express.static(__dirname + '/public'));
 //app.set('view', path.join(__dirname, 'view'));
 
 
+
+
 app.get('/', function (req,res)
 {	
+ 
+
+
+ 
+    client.sendMessage({
+        to: '+905339300033',
+        from: '+19073122636',
+        body: 'yorrock'
+    }, function(err, message) {
+    if(err){
+        console.log(err);
+    } else { console.log(message);}
+    console.log("Did message Arrive ?");
+    });
+
+
 	res.sendFile(__dirname + '/public/view/index.html');
 	console.log('Hello "/"');
+
 
 });
 
@@ -45,7 +68,6 @@ app.get('/signup', function (request, response) {
  // mandrill.tags.info({"tag": tag}, function(result) {
  // console.log(result);
  // });
-
 
 
 
@@ -115,6 +137,7 @@ app.post('/regismail', function(request,response){
         else console.log(response);
     });
 
+    
     // var startTime = new Date().getTime();
 
     // setTimeout(function () {

@@ -3,6 +3,9 @@
   "description": "Our sample Node to Heroku app",
   "main": "app.js",
   "version": "0.1.0",
+  "scripts": {
+    "start": "node app.js"
+                },
   "dependencies": {
     "ejs": "~1.0.0",
     "express": "latest",
@@ -10,10 +13,7 @@
     "mandrill-api":"latest",
     "body-parser":"latest",
     "router":"latest",
-
-     "scripts": {
-    "start": "node app.js"
-                }
+    "twilio":"latest"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
